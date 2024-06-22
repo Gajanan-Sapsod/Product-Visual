@@ -111,5 +111,4 @@ This project provides a set of tools to help sellers enhance their product visua
   - `prompt`: The prompt for AI image generation.
 - **Response**: A JSON object containing the URL of the generated image.
 
-## Folder Structure
 
