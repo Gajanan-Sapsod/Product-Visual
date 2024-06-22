@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Product Image Processing Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project provides a set of tools to help sellers enhance their product visuals by offering functionalities like background removal, image generation based on prompts, and merging product images with different backgrounds. The frontend is built with React, while the backend is implemented using Flask.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **Background Removal**: Upload a product image, remove its background, and save the processed image.
+2. **Image Generation**: Generate images based on user prompts using AI.
+3. **Background Addition**: Merge a product image with a chosen background to create visually appealing product photos.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React, JavaScript, HTML, CSS
+- **Backend**: Flask, Python
+- **Image Processing**: Pillow (PIL), `rembg` for background removal
+- **AI Integration**: OpenAI API for image generation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup and Installation
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm
+- Python 3.x
+- Flask
+- Virtual environment (optional but recommended)
 
-### `npm run build`
+### Backend Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository**:
+    ```sh
+    git clone https://github.com/your-repo/product-image-processing.git
+    cd product-image-processing/backend
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Create a Virtual Environment** (optional):
+    ```sh
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Install Dependencies**:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-### `npm run eject`
+4. **Run the Flask Server**:
+    ```sh
+    python app.py
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Navigate to the Frontend Directory**:
+    ```sh
+    cd ../frontend
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Install Dependencies**:
+    ```sh
+    npm install
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Run the React Development Server**:
+    ```sh
+    npm start
+    ```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Background Removal
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Upload Product Image**:
+    - Navigate to the background removal section on the frontend.
+    - Upload your product image.
+    - The backend processes the image to remove the background and returns the processed image.
 
-### Code Splitting
+### Image Generation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Generate Image Using AI**:
+    - Navigate to the image generation section on the frontend.
+    - Enter a prompt describing the product.
+    - Submit the form to generate an image based on the prompt.
 
-### Analyzing the Bundle Size
+### Background Addition
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Merge Product Image with Background**:
+    - Navigate to the background addition section on the frontend.
+    - Upload your product image and a background image.
+    - Submit the images to merge them and get the final image with the chosen background.
 
-### Making a Progressive Web App
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `/upload` (POST)
+- **Description**: Upload a product image and remove its background.
+- **Form Data**:
+  - `file`: The product image file.
+- **Response**: A JSON object containing the filename of the processed image.
 
-### Advanced Configuration
+### `/merge-images` (POST)
+- **Description**: Merge a product image with a background image.
+- **Form Data**:
+  - `productImage`: The product image file.
+  - `backgroundImage`: The background image file.
+- **Response**: The merged image with the product on the chosen background.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `/create_edit` (POST)
+- **Description**: Generate an image based on a prompt using AI.
+- **Form Data**:
+  - `image`: The base image file.
+  - `mask`: The mask image file.
+  - `prompt`: The prompt for AI image generation.
+- **Response**: A JSON object containing the URL of the generated image.
 
-### Deployment
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
