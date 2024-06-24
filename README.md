@@ -12,8 +12,8 @@ This project provides a set of tools to help sellers enhance their product visua
 
 - **Frontend**: React, JavaScript, HTML, CSS
 - **Backend**: Flask, Python
-- **Image Processing**: Pillow (PIL), `rembg` for background removal
-- **AI Integration**: OpenAI API for image generation
+- **Image Processing**: Pillow (PIL), U^2 net model for background removal
+
 
 ## Setup and Installation
 
